@@ -11,7 +11,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <my-component first={'John'} middle={'Gerald'} last={'Hennessey'}></my-component>          
+          <my-component first={'John'} last={'Hennessey'}></my-component>          
         </header>
       </div>
     );
