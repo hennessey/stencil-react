@@ -1,0 +1,31 @@
+button {
+    height: 10em;
+    width: 100em;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0;
+    border-width: 1;
+    border-radius: 1em;
+    overflow: hidden;
+  }
+  
+  #btn-mask {
+   position: absolute;
+   width: 0%;
+   height: 0%;
+   transition: width .7s, height .7s, background-color .5s;
+   transform: translate(-50%, -50%);
+   border-radius: 100%;
+   z-index: -1;
+  }
+  
+  #btn-mask.active {
+    width: 100em;
+    height: 100em;
+    transition: width .7s, height .7s, background-color .5s;
+    background-color: tomato;
+  }
+  
+  span {
+    color: black;
+  }

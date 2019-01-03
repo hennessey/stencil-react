@@ -12,6 +12,9 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface FancyButton {}
+  interface FancyButtonAttributes extends StencilHTMLAttributes {}
+
   interface MyComponent {
     /**
     * The first name
@@ -44,13 +47,21 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'FancyButton': Components.FancyButton;
     'MyComponent': Components.MyComponent;
   }
 
   interface StencilIntrinsicElements {
+    'fancy-button': Components.FancyButtonAttributes;
     'my-component': Components.MyComponentAttributes;
   }
 
+
+  interface HTMLFancyButtonElement extends Components.FancyButton, HTMLStencilElement {}
+  var HTMLFancyButtonElement: {
+    prototype: HTMLFancyButtonElement;
+    new (): HTMLFancyButtonElement;
+  };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
@@ -59,10 +70,12 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'fancy-button': HTMLFancyButtonElement
     'my-component': HTMLMyComponentElement
   }
 
   interface ElementTagNameMap {
+    'fancy-button': HTMLFancyButtonElement;
     'my-component': HTMLMyComponentElement;
   }
 
