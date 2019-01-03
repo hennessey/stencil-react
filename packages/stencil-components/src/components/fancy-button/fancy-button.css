@@ -1,6 +1,10 @@
+fancy-button {
+  width: 100%;
+}
+
 button {
+    width: 20em;
     height: 10em;
-    width: 100em;
     position: relative;
     z-index: 1;
     box-shadow: 0;
@@ -20,12 +24,14 @@ button {
   }
   
   #btn-mask.active {
-    width: 100em;
-    height: 100em;
+    width: 20em;
+    height: 20em;
     transition: width .7s, height .7s, background-color .5s;
     background-color: tomato;
   }
   
   span {
     color: black;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif
   }

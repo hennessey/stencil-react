@@ -12,8 +12,12 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface FancyButton {}
-  interface FancyButtonAttributes extends StencilHTMLAttributes {}
+  interface FancyButton {
+    'text': string;
+  }
+  interface FancyButtonAttributes extends StencilHTMLAttributes {
+    'text'?: string;
+  }
 
   interface MyComponent {
     /**

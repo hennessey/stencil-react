@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+    "build": "cd ./packages/stencil-components && npm run build && cd ../../ && lerna bootstrap",
+    "start": "cd ./packages/react-app && npm start"
   },
   "devDependencies": {
     "lerna": "^3.8.1"

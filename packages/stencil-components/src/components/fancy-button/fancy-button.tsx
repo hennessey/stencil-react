@@ -1,4 +1,4 @@
-import { Component } from "@stencil/core";
+import { Component, Prop } from "@stencil/core";
 
 @Component({
   tag: "fancy-button",
@@ -6,8 +6,11 @@ import { Component } from "@stencil/core";
   shadow: true
 })
 export class FancyButton {
+  @Prop() text: string;
+
   private button!: HTMLButtonElement;
   private mask!: HTMLDivElement;
+  private timerHandle?: number;
 
   constructor() {
     this.handleClick = this.handleClick.bind(this);
@@ -22,16 +25,23 @@ export class FancyButton {
     this.mask.style.top = `${nextTop}px`;
     this.mask.classList.add("active");
 
-    setTimeout(() => { 
+    this.timerHandle = setTimeout(() => { 
       this.mask.classList.remove("active");
     }, 450)
+  }
+
+  componentDidUnload() {
+    if (this.timerHandle || this.timerHandle !== 0) {
+      clearTimeout(this.timerHandle)
+      this.timerHandle = 0
+    }
   }
 
 
   render() {
     return (
       <button id="btn" ref={el => this.button = el as HTMLButtonElement} onClick={this.handleClick}>
-        <span>Click Me</span>
+        <span>{this.text}</span>
         <div id="btn-mask" ref={el => this.mask = el as HTMLDivElement} />
       </button>
     );
