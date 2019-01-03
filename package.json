@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "build": "cd ./packages/stencil-components && npm run build && cd ../../ && lerna bootstrap",
+    "build-local": "cd ./packages/stencil-components && npm run build && cd ../../ && lerna bootstrap",
+    "build-prod": "npm install && cd ./packages/stencil-components && npm run build && cd ../../ && lerna bootstrap && cd ./packages/react-app && npm run build", 
     "start": "cd ./packages/react-app && npm start"
   },
   "devDependencies": {
